@@ -1,0 +1,31 @@
+name: JacobsUtils
+version: '${project.version}'
+main: dev.c0b.jacobsutils.JacobsUtils
+api-version: '1.20'
+authors: [JacobC1921]
+description: A simple plugin to tweak your gameplay and allow your users to have a more enjoyable experience!
+website: https://c0b.dev/JacobsUtils
+
+commands:
+  cc:
+    description: Converts any Andesite/Diorite/Granite in hand to cobble
+    usage: "Usage: /cc while holding andesite, diorite or granite"
+    permission: jacobsUtils.cc
+    permission-message: You don't have permission to use this command!
+    aliases: [ convertcobble ]
+
+  coords:
+    description: Send current coords to global chat
+    usage: "Usage: /coords"
+    permission: jacobsUtils.coords
+    permission-message: You don't have permission to use this command!
+    aliases: [ saycoords ]
+
+permissions:
+  jacobsUtils.cc:
+    description: Allows you to use the /cc command
+    default: true
+
+  jacobsUtils.coords:
+    description: Allows you to use the /coords command
+    default: true
