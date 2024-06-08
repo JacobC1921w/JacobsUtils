@@ -21,6 +21,19 @@ commands:
     permission-message: You don't have permission to use this command!
     aliases: [ saycoords ]
 
+  cw:
+    description: Changes currently held wood type to specified type
+    usage: "Usage: /cw [wood type]"
+    permission: jacobsUtils.cw
+    permission-message: You don't have permission to use this command!
+    aliases: [ convertwood ]
+
+  g2f:
+    description: Converts held gravel into flint
+    usage: "Usage: /g2f"
+    permission: jacobsUtils.g2f
+    permission-message: You don't have permission to use this command!
+
 permissions:
   jacobsUtils.cc:
     description: Allows you to use the /cc command
@@ -28,4 +41,12 @@ permissions:
 
   jacobsUtils.coords:
     description: Allows you to use the /coords command
+    default: true
+
+  jacobsUtils.cw:
+    description: Allows you to use the /cw command
+    default: true
+
+  jacobsUtils.g2f:
+    description: Allows you to use the /g2f command
     default: true

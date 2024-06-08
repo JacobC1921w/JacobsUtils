@@ -10,13 +10,17 @@ import kotlin.math.roundToInt
 class Coords: CommandExecutor {
     override fun onCommand(user: CommandSender, cmd: Command, p2: String, args: Array<out String>?): Boolean {
         if (user is Player) {
-            val location = user.location
+            if (user.hasPermission("JacobsUtils.Coords")) {
+                val location = user.location
 
-            user.server.broadcastMessage("<" + user.name + "> " + location.x.roundToInt().toString() + " / " + location.y.roundToInt().toString() + " / " + location.z.roundToInt().toString())
+                user.server.broadcastMessage("<" + user.name + "> " + location.x.roundToInt().toString() + " / " + location.y.roundToInt().toString() + " / " + location.z.roundToInt().toString())
+            } else {
+                user.sendMessage("§f[ §cJacobsUtils §f] You don't have permission to execute this command!")
+            }
         } else {
-            getLogger().warning("This command cannot be execute in console!");
+            getLogger().warning("[ JacobsUtils ] This command cannot be executed in console!")
         }
 
-        return true;
+        return true
     }
 }
