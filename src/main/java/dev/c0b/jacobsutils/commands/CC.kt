@@ -23,7 +23,7 @@ class CC: CommandExecutor {
                     user.inventory.setItemInMainHand(ItemStack(Material.COBBLESTONE, materialAmount))
                 } else {
 
-                    user.sendMessage("§f[ §eJacobsUtils §f] You aren't holding any §dandesite§f, §ddiorite§f, or §dgranite§f!")
+                    user.sendMessage("§f[ §cJacobsUtils §f] You aren't holding any §dandesite§f, §ddiorite§f, or §dgranite§f!")
                 }
             } else {
                 user.sendMessage("§f[ §cJacobsUtils §f] You don't have permission to execute this command!")

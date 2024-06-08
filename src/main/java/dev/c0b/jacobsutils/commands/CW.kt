@@ -1,5 +1,6 @@
 package dev.c0b.jacobsutils.commands
 
+import net.kyori.adventure.text.Component
 import org.bukkit.Bukkit.getLogger
 import org.bukkit.Material
 import org.bukkit.command.Command
@@ -224,7 +225,7 @@ class CW: CommandExecutor {
                 } else if (wood.values.contains(user.inventory.itemInMainHand.type)) {
                     user.inventory.setItemInMainHand(ItemStack(wood.getOrDefault(specifiedWoodType, Material.OAK_WOOD), user.inventory.itemInMainHand.amount))
                 } else {
-                    user.sendMessage("§f[ §eJacobsUtils §f] You must be holding a wood-type block!")
+                    user.sendMessage("§f[ §cJacobsUtils §f] You must be holding a wood-type block!")
                 }
             } else {
                 user.sendMessage("§f[ §cJacobsUtils §f] You don't have permission to execute this command!")

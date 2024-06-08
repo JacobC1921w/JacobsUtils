@@ -1,12 +1,13 @@
 package dev.c0b.jacobsutils.commands
 
+import net.kyori.adventure.text.Component
+import org.bukkit.Bukkit.getLogger
 import org.bukkit.Material
 import org.bukkit.command.Command
 import org.bukkit.command.CommandExecutor
 import org.bukkit.command.CommandSender
 import org.bukkit.entity.Player
 import org.bukkit.inventory.ItemStack
-import org.bukkit.Bukkit.getLogger
 
 class G2F: CommandExecutor {
     override fun onCommand(user: CommandSender, cmd: Command, p2: String, args: Array<out String>?): Boolean {
@@ -18,7 +19,7 @@ class G2F: CommandExecutor {
                     user.inventory.setItemInMainHand(ItemStack(Material.FLINT, materialAmount))
                 } else {
 
-                    user.sendMessage("§f[ §eJacobsUtils §f] You aren't holding any §dgravel§f!")
+                    user.sendMessage("§f[ §cJacobsUtils §f] You aren't holding any §dgravel§f!")
                 }
             } else {
                 user.sendMessage("§f[ §cJacobsUtils §f] You don't have permission to execute this command!")

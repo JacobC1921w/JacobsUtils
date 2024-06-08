@@ -1,10 +1,11 @@
 package dev.c0b.jacobsutils.commands
 
+import net.kyori.adventure.text.Component
+import org.bukkit.Bukkit.getLogger
 import org.bukkit.command.Command
 import org.bukkit.command.CommandExecutor
 import org.bukkit.command.CommandSender
 import org.bukkit.entity.Player
-import org.bukkit.Bukkit.getLogger
 import kotlin.math.roundToInt
 
 class Coords: CommandExecutor {
@@ -13,7 +14,8 @@ class Coords: CommandExecutor {
             if (user.hasPermission("JacobsUtils.Coords")) {
                 val location = user.location
 
-                user.server.broadcastMessage("<" + user.name + "> " + location.x.roundToInt().toString() + " / " + location.y.roundToInt().toString() + " / " + location.z.roundToInt().toString())
+
+                user.server.broadcast(Component.text("<" + user.name + "> " + location.x.roundToInt().toString() + " / " + location.y.roundToInt().toString() + " / " + location.z.roundToInt().toString()))
             } else {
                 user.sendMessage("§f[ §cJacobsUtils §f] You don't have permission to execute this command!")
             }

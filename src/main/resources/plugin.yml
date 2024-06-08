@@ -34,6 +34,13 @@ commands:
     permission: jacobsUtils.g2f
     permission-message: You don't have permission to use this command!
 
+  gt:
+    description: Writes to player chat in green text format
+    usage: "Usage: /gt [message]"
+    permission: jacobsUtils.gt
+    permission-message: You don't have permission to use this command!
+    aliases: [ greentext ]
+
 permissions:
   jacobsUtils.cc:
     description: Allows you to use the /cc command
@@ -49,4 +56,8 @@ permissions:
 
   jacobsUtils.g2f:
     description: Allows you to use the /g2f command
+    default: true
+
+  jacobsUtils.gt:
+    description: Allows you to use the /gt command
     default: true
