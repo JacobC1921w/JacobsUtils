@@ -41,6 +41,12 @@ commands:
     permission-message: You don't have permission to use this command!
     aliases: [ greentext ]
 
+  h2f:
+    description: Converts half blocks into full blocks
+    usage: "Usage: /h2f"
+    permission: jacobsUtils.h2f
+    permission-message: You don't have permission to use this command!
+
 permissions:
   jacobsUtils.cc:
     description: Allows you to use the /cc command
@@ -60,4 +66,8 @@ permissions:
 
   jacobsUtils.gt:
     description: Allows you to use the /gt command
+    default: true
+
+  jacobsUtils.h2f:
+    description: Allows you to use the /h2f command
     default: true

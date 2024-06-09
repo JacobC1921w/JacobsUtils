@@ -1,6 +1,5 @@
 package dev.c0b.jacobsutils.commands
 
-import net.kyori.adventure.text.Component
 import org.bukkit.Bukkit.getLogger
 import org.bukkit.Material
 import org.bukkit.command.Command

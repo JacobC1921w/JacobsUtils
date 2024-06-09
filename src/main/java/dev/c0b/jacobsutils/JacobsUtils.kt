@@ -11,6 +11,7 @@ class JacobsUtils : JavaPlugin() {
         getCommand("cw")?.setExecutor(CW())
         getCommand("g2f")?.setExecutor(G2F())
         getCommand("gt")?.setExecutor(GT())
+        getCommand("h2f")?.setExecutor(H2F())
     }
 
 
