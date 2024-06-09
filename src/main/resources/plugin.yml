@@ -47,6 +47,32 @@ commands:
     permission: jacobsUtils.h2f
     permission-message: You don't have permission to use this command!
 
+  list:
+    description: Lists all players currently online
+    usage: "Usage: /list"
+    permission: jacobsUtils.list
+    permission-message: You don't have permission to use this command!
+    aliases: [ online ]
+
+  p2l:
+    description: Converts planks back to their log states
+    usage: "Usage: /p2l"
+    permission: jacobsUtils.p2l
+    permission-message: You don't have permission to use this command!
+
+  s2p:
+    description: Converts sticks back to oak planks
+    usage: "Usage: /s2p"
+    permission: jacobsUtils.s2p
+    permission-message: You don't have permission to use this command!
+
+  tce:
+    description: Toggles creepers destroying blocks
+    usage: "Usage: /tce"
+    permission: jacobsUtils.tce
+    permission-message: You don't have permission to use this command!
+    aliases: [ togglecreeperexplosions ]
+
 permissions:
   jacobsUtils.cc:
     description: Allows you to use the /cc command
@@ -71,3 +97,19 @@ permissions:
   jacobsUtils.h2f:
     description: Allows you to use the /h2f command
     default: true
+
+  jacobsUtils.list:
+    description: Allows you to use the /list command
+    default: true
+
+  jacobsUtils.p2l:
+    description: Allows you to use the /p2l command
+    default: true
+
+  jacobsUtils.s2p:
+    description: Allows you to use the /s2p command
+    default: true
+
+  jacobsUtils.tce:
+    description: Allows you to use the /tce command
+    default: op
