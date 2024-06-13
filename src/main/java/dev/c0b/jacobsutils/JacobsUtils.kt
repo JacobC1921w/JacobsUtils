@@ -22,9 +22,7 @@ class JacobsUtils : JavaPlugin() {
         getCommand("s2p")?.setExecutor(S2P())
         getCommand("tce")?.setExecutor(TCE(this))
 
-        if (config.get("creepersDamageBlocks") == false) {
-            Bukkit.getPluginManager().registerEvents(onCreeperExplodeEvent(this), this)
-        }
+        Bukkit.getPluginManager().registerEvents(onCreeperExplodeEvent(this), this)
     }
 
 
