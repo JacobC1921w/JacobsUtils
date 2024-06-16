@@ -1,18 +1,28 @@
 package dev.c0b.jacobsutils.commands
 
-import org.bukkit.Bukkit.getLogger
+import com.destroystokyo.paper.utils.PaperPluginLogger
+import java.util.*
 import org.bukkit.Material
 import org.bukkit.command.Command
 import org.bukkit.command.CommandExecutor
 import org.bukkit.command.CommandSender
 import org.bukkit.entity.Player
 import org.bukkit.inventory.ItemStack
-import java.util.*
 
-class CW: CommandExecutor {
-    override fun onCommand(user: CommandSender, cmd: Command, p2: String, args: Array<out String>?): Boolean {
+class CW : CommandExecutor {
+    override fun onCommand(
+        user: CommandSender,
+        cmd: Command,
+        p2: String,
+        args: Array<out String>?
+    ): Boolean {
+        // Check if sender is player or console
         if (user is Player) {
-            if (user.hasPermission("JacobsUtils.CW")) {
+            // Make sure they have permission to execute this command
+            if (user.hasPermission("JacobsUtils.cw")) {
+
+                // Create maps of each wood type and wood material
+
                 val boats = mutableMapOf<String, Material>()
                 boats["acacia"] = Material.ACACIA_BOAT
                 boats["birch"] = Material.BIRCH_BOAT
@@ -183,54 +193,153 @@ class CW: CommandExecutor {
                 wood["oak"] = Material.OAK_WOOD
                 wood["spruce"] = Material.SPRUCE_WOOD
 
+                // Initialize with oak in case they don't provide arguments
                 var specifiedWoodType = "oak"
 
+                // Make sure if they have supplied an argument, that it's not null or empty, then
+                // replace the wood type set before
                 if (args != null && args.isNotEmpty()) {
                     specifiedWoodType = args[0].lowercase(Locale.getDefault())
                 }
 
+                // Do the ol' switcheroo!
+                // But seriously, just replace what they're holding with a different wood type
                 if (boats.values.contains(user.inventory.itemInMainHand.type)) {
-                    user.inventory.setItemInMainHand(ItemStack(boats.getOrDefault(specifiedWoodType, Material.OAK_BOAT), user.inventory.itemInMainHand.amount))
+                    user.inventory.setItemInMainHand(
+                        ItemStack(
+                            boats.getOrDefault(specifiedWoodType, Material.OAK_BOAT),
+                            user.inventory.itemInMainHand.amount
+                        )
+                    )
                 } else if (boatChests.values.contains(user.inventory.itemInMainHand.type)) {
-                    user.inventory.setItemInMainHand(ItemStack(boatChests.getOrDefault(specifiedWoodType, Material.OAK_CHEST_BOAT), user.inventory.itemInMainHand.amount))
+                    user.inventory.setItemInMainHand(
+                        ItemStack(
+                            boatChests.getOrDefault(specifiedWoodType, Material.OAK_CHEST_BOAT),
+                            user.inventory.itemInMainHand.amount
+                        )
+                    )
                 } else if (buttons.values.contains(user.inventory.itemInMainHand.type)) {
-                    user.inventory.setItemInMainHand(ItemStack(buttons.getOrDefault(specifiedWoodType, Material.OAK_BUTTON), user.inventory.itemInMainHand.amount))
+                    user.inventory.setItemInMainHand(
+                        ItemStack(
+                            buttons.getOrDefault(specifiedWoodType, Material.OAK_BUTTON),
+                            user.inventory.itemInMainHand.amount
+                        )
+                    )
                 } else if (doors.values.contains(user.inventory.itemInMainHand.type)) {
-                    user.inventory.setItemInMainHand(ItemStack(doors.getOrDefault(specifiedWoodType, Material.OAK_DOOR), user.inventory.itemInMainHand.amount))
+                    user.inventory.setItemInMainHand(
+                        ItemStack(
+                            doors.getOrDefault(specifiedWoodType, Material.OAK_DOOR),
+                            user.inventory.itemInMainHand.amount
+                        )
+                    )
                 } else if (fences.values.contains(user.inventory.itemInMainHand.type)) {
-                    user.inventory.setItemInMainHand(ItemStack(fences.getOrDefault(specifiedWoodType, Material.OAK_FENCE), user.inventory.itemInMainHand.amount))
+                    user.inventory.setItemInMainHand(
+                        ItemStack(
+                            fences.getOrDefault(specifiedWoodType, Material.OAK_FENCE),
+                            user.inventory.itemInMainHand.amount
+                        )
+                    )
                 } else if (fenceGates.values.contains(user.inventory.itemInMainHand.type)) {
-                    user.inventory.setItemInMainHand(ItemStack(fenceGates.getOrDefault(specifiedWoodType, Material.OAK_FENCE_GATE), user.inventory.itemInMainHand.amount))
+                    user.inventory.setItemInMainHand(
+                        ItemStack(
+                            fenceGates.getOrDefault(specifiedWoodType, Material.OAK_FENCE_GATE),
+                            user.inventory.itemInMainHand.amount
+                        )
+                    )
                 } else if (hangingSigns.values.contains(user.inventory.itemInMainHand.type)) {
-                    user.inventory.setItemInMainHand(ItemStack(hangingSigns.getOrDefault(specifiedWoodType, Material.OAK_HANGING_SIGN), user.inventory.itemInMainHand.amount))
+                    user.inventory.setItemInMainHand(
+                        ItemStack(
+                            hangingSigns.getOrDefault(specifiedWoodType, Material.OAK_HANGING_SIGN),
+                            user.inventory.itemInMainHand.amount
+                        )
+                    )
                 } else if (logs.values.contains(user.inventory.itemInMainHand.type)) {
-                    user.inventory.setItemInMainHand(ItemStack(logs.getOrDefault(specifiedWoodType, Material.OAK_LOG), user.inventory.itemInMainHand.amount))
+                    user.inventory.setItemInMainHand(
+                        ItemStack(
+                            logs.getOrDefault(specifiedWoodType, Material.OAK_LOG),
+                            user.inventory.itemInMainHand.amount
+                        )
+                    )
                 } else if (planks.values.contains(user.inventory.itemInMainHand.type)) {
-                    user.inventory.setItemInMainHand(ItemStack(planks.getOrDefault(specifiedWoodType, Material.OAK_PLANKS), user.inventory.itemInMainHand.amount))
+                    user.inventory.setItemInMainHand(
+                        ItemStack(
+                            planks.getOrDefault(specifiedWoodType, Material.OAK_PLANKS),
+                            user.inventory.itemInMainHand.amount
+                        )
+                    )
                 } else if (pressurePlates.values.contains(user.inventory.itemInMainHand.type)) {
-                    user.inventory.setItemInMainHand(ItemStack(pressurePlates.getOrDefault(specifiedWoodType, Material.OAK_PRESSURE_PLATE), user.inventory.itemInMainHand.amount))
+                    user.inventory.setItemInMainHand(
+                        ItemStack(
+                            pressurePlates.getOrDefault(
+                                specifiedWoodType,
+                                Material.OAK_PRESSURE_PLATE
+                            ),
+                            user.inventory.itemInMainHand.amount
+                        )
+                    )
                 } else if (signs.values.contains(user.inventory.itemInMainHand.type)) {
-                    user.inventory.setItemInMainHand(ItemStack(signs.getOrDefault(specifiedWoodType, Material.OAK_SIGN), user.inventory.itemInMainHand.amount))
+                    user.inventory.setItemInMainHand(
+                        ItemStack(
+                            signs.getOrDefault(specifiedWoodType, Material.OAK_SIGN),
+                            user.inventory.itemInMainHand.amount
+                        )
+                    )
                 } else if (slabs.values.contains(user.inventory.itemInMainHand.type)) {
-                    user.inventory.setItemInMainHand(ItemStack(slabs.getOrDefault(specifiedWoodType, Material.OAK_SLAB), user.inventory.itemInMainHand.amount))
+                    user.inventory.setItemInMainHand(
+                        ItemStack(
+                            slabs.getOrDefault(specifiedWoodType, Material.OAK_SLAB),
+                            user.inventory.itemInMainHand.amount
+                        )
+                    )
                 } else if (stairs.values.contains(user.inventory.itemInMainHand.type)) {
-                    user.inventory.setItemInMainHand(ItemStack(stairs.getOrDefault(specifiedWoodType, Material.OAK_STAIRS), user.inventory.itemInMainHand.amount))
+                    user.inventory.setItemInMainHand(
+                        ItemStack(
+                            stairs.getOrDefault(specifiedWoodType, Material.OAK_STAIRS),
+                            user.inventory.itemInMainHand.amount
+                        )
+                    )
                 } else if (strippedLogs.values.contains(user.inventory.itemInMainHand.type)) {
-                    user.inventory.setItemInMainHand(ItemStack(strippedLogs.getOrDefault(specifiedWoodType, Material.STRIPPED_OAK_LOG), user.inventory.itemInMainHand.amount))
+                    user.inventory.setItemInMainHand(
+                        ItemStack(
+                            strippedLogs.getOrDefault(specifiedWoodType, Material.STRIPPED_OAK_LOG),
+                            user.inventory.itemInMainHand.amount
+                        )
+                    )
                 } else if (strippedWood.values.contains(user.inventory.itemInMainHand.type)) {
-                    user.inventory.setItemInMainHand(ItemStack(strippedWood.getOrDefault(specifiedWoodType, Material.STRIPPED_OAK_WOOD), user.inventory.itemInMainHand.amount))
+                    user.inventory.setItemInMainHand(
+                        ItemStack(
+                            strippedWood.getOrDefault(
+                                specifiedWoodType,
+                                Material.STRIPPED_OAK_WOOD
+                            ),
+                            user.inventory.itemInMainHand.amount
+                        )
+                    )
                 } else if (trapdoors.values.contains(user.inventory.itemInMainHand.type)) {
-                    user.inventory.setItemInMainHand(ItemStack(trapdoors.getOrDefault(specifiedWoodType, Material.OAK_TRAPDOOR), user.inventory.itemInMainHand.amount))
+                    user.inventory.setItemInMainHand(
+                        ItemStack(
+                            trapdoors.getOrDefault(specifiedWoodType, Material.OAK_TRAPDOOR),
+                            user.inventory.itemInMainHand.amount
+                        )
+                    )
                 } else if (wood.values.contains(user.inventory.itemInMainHand.type)) {
-                    user.inventory.setItemInMainHand(ItemStack(wood.getOrDefault(specifiedWoodType, Material.OAK_WOOD), user.inventory.itemInMainHand.amount))
+                    user.inventory.setItemInMainHand(
+                        ItemStack(
+                            wood.getOrDefault(specifiedWoodType, Material.OAK_WOOD),
+                            user.inventory.itemInMainHand.amount
+                        )
+                    )
                 } else {
                     user.sendMessage("§f[ §cJacobsUtils §f] You must be holding a wood-type block!")
                 }
             } else {
-                user.sendMessage("§f[ §cJacobsUtils §f] You don't have permission to execute this command!")
+                user.sendMessage(
+                    "§f[ §cJacobsUtils §f] You don't have permission to execute this command!"
+                )
             }
         } else {
-            getLogger().warning("[ JacobsUtils ] This command cannot be executed in console!")
+            PaperPluginLogger.getGlobal()
+                .warning("[ JacobsUtils ] This command cannot be executed in console!")
         }
 
         return true

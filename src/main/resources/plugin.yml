@@ -1,7 +1,7 @@
 name: JacobsUtils
-version: '${project.version}'
+version: "${project.version}"
 main: dev.c0b.jacobsutils.JacobsUtils
-api-version: '1.20'
+api-version: "1.20"
 authors: [JacobC1921]
 description: A simple plugin to tweak your gameplay and allow your users to have a more enjoyable experience!
 website: https://c0b.dev/JacobsUtils
@@ -12,21 +12,21 @@ commands:
     usage: "Usage: /cc while holding andesite, diorite or granite"
     permission: jacobsUtils.cc
     permission-message: You don't have permission to use this command!
-    aliases: [ convertcobble ]
+    aliases: [convertcobble]
 
   coords:
     description: Send current coords to global chat
     usage: "Usage: /coords"
     permission: jacobsUtils.coords
     permission-message: You don't have permission to use this command!
-    aliases: [ saycoords ]
+    aliases: [saycoords]
 
   cw:
     description: Changes currently held wood type to specified type
     usage: "Usage: /cw [wood type]"
     permission: jacobsUtils.cw
     permission-message: You don't have permission to use this command!
-    aliases: [ convertwood ]
+    aliases: [convertwood]
 
   g2f:
     description: Converts held gravel into flint
@@ -39,7 +39,7 @@ commands:
     usage: "Usage: /gt [message]"
     permission: jacobsUtils.gt
     permission-message: You don't have permission to use this command!
-    aliases: [ greentext ]
+    aliases: [greentext]
 
   h2f:
     description: Converts half blocks into full blocks
@@ -52,7 +52,7 @@ commands:
     usage: "Usage: /list"
     permission: jacobsUtils.list
     permission-message: You don't have permission to use this command!
-    aliases: [ online ]
+    aliases: [online]
 
   p2l:
     description: Converts planks back to their log states
@@ -71,7 +71,7 @@ commands:
     usage: "Usage: /tce"
     permission: jacobsUtils.tce
     permission-message: You don't have permission to use this command!
-    aliases: [ togglecreeperexplosions ]
+    aliases: [togglecreeperexplosions]
 
 permissions:
   jacobsUtils.cc:
